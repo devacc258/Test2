@@ -1,0 +1,8 @@
+SELECT a.role As Role, a.salary As MaxSalary
+FROM Employees a
+INNER JOIN (
+    SELECT role, MAX(salary) salary
+    FROM Employees
+	Group by role
+) b ON a.role = b.role AND a.salary = b.salary
+	Order By MaxSalary Desc

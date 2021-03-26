@@ -1,0 +1,2 @@
+Select role As Role, Sum(salary) As Salary from Employees where salary < 300 and salary > 600 group by role
+

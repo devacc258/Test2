@@ -1,0 +1,61 @@
+using System;
+using System.Linq;
+
+namespace TestProject1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a Number");
+
+            int[] A = new int[4];
+            int a;
+
+            Console.Write("Input 4 elements of the first array :\n");
+            for (a = 0; a < 4; a++)
+            {
+                Console.Write("element - {0} : ", a);
+                A[a] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            int[] B = new int[3];
+            int b;
+
+            Console.Write("Input 3 elements of the second array :\n");
+            for (b = 0; b < 3; b++)
+            {
+                Console.Write("element - {0} : ", b);
+                B[b] = Convert.ToInt32(Console.ReadLine());
+            }
+
+
+            int[] MergedArray = A.Concat(B).ToArray();
+
+            int i;
+            int k;
+
+            int temp = 0;
+
+            for (i = 0; i < 7; i++)
+            {
+                for (int j = i + 1; j < 7; j++)
+                {
+                    if (MergedArray[i] > MergedArray[j])
+                    {
+                        temp = MergedArray[i];
+                        MergedArray[i] = MergedArray[j];
+                        MergedArray[j] = temp;
+                    }
+                }
+            }
+
+            Console.WriteLine("Elements of Merged and Sorted Array : ");
+            for (k = 0; k < 7; k++)
+            {
+                Console.WriteLine("Element[" + (k + 1) + "]: " + MergedArray[k]);
+
+            }
+        }
+    }
+}
